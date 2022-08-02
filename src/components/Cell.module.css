@@ -1,0 +1,21 @@
+.white {
+    display: flex;
+    background-color: bisque;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.black {
+    display: flex;
+    background-color: #282c34;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    height: 70px;
+    width: 70px;
+}
