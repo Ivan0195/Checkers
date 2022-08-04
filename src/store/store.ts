@@ -6,6 +6,7 @@ export type GlobalStateType = {
 
 export type ChekerBioType = {
     id: string,
+    color:'black' | 'white',
     isRoyal: boolean,
     positionX: number,
     positionY: number,
@@ -15,6 +16,7 @@ export type ChekerBioType = {
 export type checkersStateType = ChekerBioType[]
 
 
+//////////////////////Global
 export class GlobalState {
 
     globalState: GlobalStateType = {step: 'white'}
@@ -28,8 +30,11 @@ export class GlobalState {
     }
 }
 
-const checkesMaker = (id:string, positionX:number, positionY:number) => ({
+/////////////Checkers
+
+const checkesMaker = (id:string, positionX:number, positionY:number, color: 'black'|'white') => ({
     id,
+    color,
     isRoyal: false,
     positionX,
     positionY,
@@ -39,30 +44,30 @@ const checkesMaker = (id:string, positionX:number, positionY:number) => ({
 export class Checkers {
 
     checkers:checkersStateType = [
-            checkesMaker('black1',8,8),
-            checkesMaker('black2',6,8),
-            checkesMaker('black3',4,8),
-            checkesMaker('black4',2,8),
-            checkesMaker('black5',1,7),
-            checkesMaker('black6',3,7),
-            checkesMaker('black7',5,7),
-            checkesMaker('black8',7,7),
-            checkesMaker('black9',8,6),
-            checkesMaker('black10',6,6),
-            checkesMaker('black11',4,6),
-            checkesMaker('black12',2,6),
-            checkesMaker('white1',1,1),
-            checkesMaker('white2',3,1),
-            checkesMaker('white3',5,1),
-            checkesMaker('white4',7,1),
-            checkesMaker('white5',2,2),
-            checkesMaker('white6',4,2),
-            checkesMaker('white7',6,2),
-            checkesMaker('white8',8,2),
-            checkesMaker('white9',1,3),
-            checkesMaker('white10',3,3),
-            checkesMaker('white11',5,3),
-            checkesMaker('white12',7,3),
+            checkesMaker('black1',8,8, 'black'),
+            checkesMaker('black2',6,8, 'black'),
+            checkesMaker('black3',4,8, 'black'),
+            checkesMaker('black4',2,8, 'black'),
+            checkesMaker('black5',1,7, 'black'),
+            checkesMaker('black6',3,7, 'black'),
+            checkesMaker('black7',5,7, 'black'),
+            checkesMaker('black8',7,7, 'black'),
+            checkesMaker('black9',8,6, 'black'),
+            checkesMaker('black10',6,6, 'black'),
+            checkesMaker('black11',4,6, 'black'),
+            checkesMaker('black12',2,6, 'black'),
+            checkesMaker('white1',1,1, 'white'),
+            checkesMaker('white2',3,1, 'white'),
+            checkesMaker('white3',5,1, 'white'),
+            checkesMaker('white4',7,1, 'white'),
+            checkesMaker('white5',2,2, 'white'),
+            checkesMaker('white6',4,2, 'white'),
+            checkesMaker('white7',6,2, 'white'),
+            checkesMaker('white8',8,2, 'white'),
+            checkesMaker('white9',1,3, 'white'),
+            checkesMaker('white10',3,3, 'white'),
+            checkesMaker('white11',5,3, 'white'),
+            checkesMaker('white12',7,3, 'white'),
         ]
 
     constructor() {

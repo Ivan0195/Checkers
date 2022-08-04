@@ -8,7 +8,7 @@
 }
 .black {
     display: flex;
-    background-color: #282c34;
+    background-color: rgba(0, 0, 0, 0.65);
     width: 100px;
     height: 100px;
     align-items: center;
@@ -16,6 +16,6 @@
 }
 
 .image {
-    height: 70px;
-    width: 70px;
+    height: 80px;
+    width: 80px;
 }
