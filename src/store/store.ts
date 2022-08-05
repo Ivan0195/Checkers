@@ -2,6 +2,7 @@ import { makeAutoObservable } from "mobx"
 
 export type GlobalStateType = {
     step: 'black' | 'white'
+    status: 'waitingForStep' | 'stepInProcess'
 }
 
 export type ChekerBioType = {
@@ -19,7 +20,10 @@ export type checkersStateType = ChekerBioType[]
 //////////////////////Global
 export class GlobalState {
 
-    globalState: GlobalStateType = {step: 'white'}
+    globalState: GlobalStateType = {
+        step: 'white',
+        status: "waitingForStep",
+    }
 
     constructor() {
         makeAutoObservable(this)
@@ -38,7 +42,7 @@ const checkesMaker = (id:string, positionX:number, positionY:number, color: 'bla
     isRoyal: false,
     positionX,
     positionY,
-    stillInGame: true
+    stillInGame: true,
 })
 
 export class Checkers {
@@ -70,6 +74,24 @@ export class Checkers {
             checkesMaker('white12',7,3, 'white'),
         ]
 
+    constructor() {
+        makeAutoObservable(this)
+    }
+
+    setCheckerPosition(checkerId: string, x:number, y:number) {
+   const checker = this.checkers.find(c=>c.id===checkerId)
+        if(checker!== undefined){
+            checker.positionY=y
+            checker.positionX=x
+        }
+    }
+}
+
+
+/////////////////////Step Data
+
+
+class Step {
     constructor() {
         makeAutoObservable(this)
     }
