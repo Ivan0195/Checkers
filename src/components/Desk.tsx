@@ -1,7 +1,8 @@
 import React from 'react';
 import Line from "./Line";
+import {observer} from "mobx-react-lite";
 
-const Desk = () => {
+const Desk = observer(() => {
     return (
         <div>
             <Line positionY={8}/>
@@ -14,6 +15,6 @@ const Desk = () => {
             <Line positionY={1}/>
         </div>
     );
-};
+});
 
 export default Desk;

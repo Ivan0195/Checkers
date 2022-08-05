@@ -1,12 +1,13 @@
 import React from 'react';
 import s from './Line.module.css'
 import Cell from "./Cell";
+import {observer} from "mobx-react-lite";
 
 type LinePropsType = {
     positionY: number
 }
 
-const Line = (props: LinePropsType) => {
+const Line = observer((props: LinePropsType) => {
     return (
         <div className={s.line}>
             <Cell x={1} y={props.positionY}/>
@@ -19,6 +20,6 @@ const Line = (props: LinePropsType) => {
             <Cell x={8} y={props.positionY}/>
         </div>
     );
-};
+});
 
 export default Line;

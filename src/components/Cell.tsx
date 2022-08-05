@@ -10,14 +10,16 @@ export type cellPropsType = {
 
 const Cell = observer((props: cellPropsType) => {
 
+    const checkers = new Checkers()
+
         const whiteChecker = 'https://pngimage.net/wp-content/uploads/2018/06/%D1%88%D0%B0%D1%88%D0%BA%D0%B0-png-6.png'
         const blackChecker = 'https://pngimage.net/wp-content/uploads/2018/06/%D1%88%D0%B0%D1%88%D0%BA%D0%B0-png-5.png'
 
-        const check = new Checkers().checkers.map((c) => {
+        const check = checkers.checkers.map((c) => {
             if (c.positionX === props.x) {
                 if (c.positionY === props.y) {
-                    return c.color === 'white' ? <img src={whiteChecker} className={s.image}/> :
-                        <img src={blackChecker} className={s.image}/>
+                    return c.color === 'white' ? <img src={whiteChecker} className={s.image} onClick={()=>checkers.setCheckerForStepId(c.id)}/> :
+                        <img src={blackChecker} className={s.image} onClick={()=>checkers.setCheckerForStepId(c.id)}/>
                 }
             } else return ''
         })
@@ -31,7 +33,7 @@ const Cell = observer((props: cellPropsType) => {
         }
 
         return (
-            <div className={color() === 'white' ? s.white : s.black}>
+            <div className={color() === 'white' ? s.white : s.black} onClick={()=>checkers.moveChecker(props.x, props.y)}>
                 {check}
             </div>
         );
