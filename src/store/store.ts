@@ -20,23 +20,6 @@ export type stepDataType = {
     checkerId: string
 }
 
-//////////////////////Global
-export class GlobalState {
-
-    globalState: GlobalStateType = {
-        step: 'white',
-        status: "waitingForStep",
-    }
-
-    constructor() {
-        makeAutoObservable(this)
-    }
-
-    changeStep() {
-        this.globalState.step === "white" ? this.globalState.step = 'black' : this.globalState.step = 'white'
-    }
-}
-
 /////////////Checkers
 
 const checkesMaker = (id: string, positionX: number, positionY: number, color: 'black' | 'white') => ({
@@ -49,6 +32,11 @@ const checkesMaker = (id: string, positionX: number, positionY: number, color: '
 })
 
 export class Checkers {
+
+    globalState: GlobalStateType = {
+        step: 'white',
+        status: "waitingForStep",
+    }
 
     checkers: checkersStateType = [
         checkesMaker('black1', 8, 8, 'black'),
@@ -85,15 +73,27 @@ export class Checkers {
         makeAutoObservable(this)
     }
 
+    changeStep() {
+        this.globalState.step === "white" ? this.globalState.step = 'black' : this.globalState.step = 'white'
+    }
+
     setCheckerForStepId(id: string) {
-        this.stepData.checkerId = id
+        if (this.globalState.status==='waitingForStep'){
+            console.log('setChecker')
+            this.stepData.checkerId = id
+            this.globalState.status='stepInProcess'
+        }
     }
 
     moveChecker(x: number, y: number) {
-        const currentChecker = this.checkers.find(c => c.id === this.stepData.checkerId)
-        if(currentChecker){
-            currentChecker.positionX = x
-            currentChecker.positionY = y
+        if (this.globalState.status==='stepInProcess'){
+            console.log('moveChecker')
+            const currentChecker = this.checkers.find(c => c.id === this.stepData.checkerId)
+            if(currentChecker){
+                currentChecker.positionX = x
+                currentChecker.positionY = y
+                this.globalState.status='waitingForStep'
+            }
         }
     }
 }
