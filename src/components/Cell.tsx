@@ -16,6 +16,7 @@ const Cell = observer((props: cellPropsType) => {
             checkers.setCheckerForStepId(id)
         }
         const onClickForCell = () => {
+            checkers.setStepCoordinates(props.x, props.y)
             checkers.moveChecker()
         }
 

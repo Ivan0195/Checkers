@@ -19,7 +19,7 @@ export type checkersStateType = ChekerBioType[]
 export type stepDataType = {
     x: number
     y: number
-    checker: ChekerBioType
+    checkerId: string
 }
 
 /////////////Checkers
@@ -70,14 +70,7 @@ export class Checkers {
     stepData: stepDataType = {
         x: 0,
         y: 0,
-        checker: {
-            id: 'sad',
-            color: 'white',
-            isRoyal: false,
-            positionX: 22,
-            positionY: 22,
-            stillInGame: false
-        }
+        checkerId: 'domeID'
     }
 
     constructor() {
@@ -93,7 +86,7 @@ export class Checkers {
             console.log('setChecker')
             const currentChecker = this.checkers.find(c => c.id === id)
             if (currentChecker) {
-                this.stepData.checker = currentChecker
+                this.stepData.checkerId = currentChecker.id
             }
         }
         this.globalState.status='stepInProcess'
@@ -105,13 +98,11 @@ export class Checkers {
     }
 
     moveChecker() {
-        if (this.globalState.status==='stepInProcess'){
-            console.log('moveChecker')
-            if(this.stepData.checker){
-                this.stepData.checker.positionX = this.stepData.x
-                this.stepData.checker.positionY = this.stepData.y
-                this.globalState.status='waitingForStep'
-            }
+        console.log('moooveeee')
+       const currentChecker = this.checkers.find(c=>c.id===this.stepData.checkerId)
+        if (currentChecker) {
+            currentChecker.positionX = this.stepData.x
+            currentChecker.positionY = this.stepData.y
         }
     }
 }
