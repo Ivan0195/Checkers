@@ -12,14 +12,13 @@ const Cell = observer((props: cellPropsType) => {
 
     const checkers = new Checkers()
 
-        const whiteChecker = 'https://pngimage.net/wp-content/uploads/2018/06/%D1%88%D0%B0%D1%88%D0%BA%D0%B0-png-6.png'
-        const blackChecker = 'https://pngimage.net/wp-content/uploads/2018/06/%D1%88%D0%B0%D1%88%D0%BA%D0%B0-png-5.png'
+
 
         const check = checkers.checkers.map((c) => {
             if (c.positionX === props.x) {
                 if (c.positionY === props.y) {
-                    return c.color === 'white' ? <img src={whiteChecker} className={s.image} onClick={()=>checkers.setCheckerForStepId(c.id)}/> :
-                        <img src={blackChecker} className={s.image} onClick={()=>checkers.setCheckerForStepId(c.id)}/>
+                    return c.color === 'white' ? <div className={s.checkerWhite}/> :
+                        <div className={s.checkerBlack}/>
                 }
             } else return ''
         })
