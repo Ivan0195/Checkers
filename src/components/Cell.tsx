@@ -10,18 +10,29 @@ export type cellPropsType = {
 
 const Cell = observer((props: cellPropsType) => {
 
-    const checkers = new Checkers()
-
-
+        const checkers = new Checkers()
+        const onClickForChecker = (id: string) => {
+            checkers.setCheckerForStepId(id)
+        }
+        const onClickForCell = () => {
+            checkers.moveChecker(props.x, props.y)
+        }
 
         const check = checkers.checkers.map((c) => {
             if (c.positionX === props.x) {
                 if (c.positionY === props.y) {
-                    return c.color === 'white' ? <div className={s.checkerWhite}/> :
-                        <div className={s.checkerBlack}/>
+                    return c.color === 'white' ? <div className={s.checkerWhite} onClick={(event) => {
+                            event.stopPropagation()
+                            onClickForChecker(c.id)
+                        }}/> :
+                        <div className={s.checkerBlack} onClick={(event) => {
+                            event.stopPropagation()
+                            onClickForChecker(c.id)
+                        }}/>
                 }
             } else return ''
         })
+
 
         const color = () => {
             if (props.y % 2 !== 0) {
@@ -32,7 +43,7 @@ const Cell = observer((props: cellPropsType) => {
         }
 
         return (
-            <div className={color() === 'white' ? s.white : s.black} onClick={()=>checkers.moveChecker(props.x, props.y)}>
+            <div className={color() === 'white' ? s.white : s.black} onClick={onClickForCell}>
                 {check}
             </div>
         );

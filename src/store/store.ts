@@ -17,6 +17,8 @@ export type ChekerBioType = {
 export type checkersStateType = ChekerBioType[]
 
 export type stepDataType = {
+    x: number
+    y: number
     checkerId: string
 }
 
@@ -66,6 +68,8 @@ export class Checkers {
     ]
 
     stepData: stepDataType = {
+        x: 0,
+        y: 0,
         checkerId: 'someId'
     }
 
@@ -81,8 +85,13 @@ export class Checkers {
         if (this.globalState.status==='waitingForStep'){
             console.log('setChecker')
             this.stepData.checkerId = id
-            this.globalState.status='stepInProcess'
         }
+        this.globalState.status='stepInProcess'
+    }
+
+    setStepCoordinates(x:number,y:number){
+        this.stepData.x=x
+        this.stepData.y=y
     }
 
     moveChecker(x: number, y: number) {
