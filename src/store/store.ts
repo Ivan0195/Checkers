@@ -85,7 +85,11 @@ export class Checkers {
         console.log('setChecker')
         const currentChecker = this.checkers.find(c => c.id === id)
         if (currentChecker) {
-            this.stepData.checkerId = currentChecker.id
+            if(currentChecker.color===this.globalState.step){
+                this.stepData.checkerId = currentChecker.id
+            }else{
+                alert(`now is ${this.globalState.step} team step`)
+            }
         }
     }
 
@@ -102,6 +106,7 @@ export class Checkers {
             if (Math.abs(differenceX)  === 1 && differenceY === 1) {
                 this.checkers[currentChecker].positionY = this.stepData.y
                 this.checkers[currentChecker].positionX = this.stepData.x
+                this.globalState.step='black'
             } else {
                 alert('your step is too far')
             }
@@ -109,6 +114,7 @@ export class Checkers {
             if (Math.abs(differenceX)  === 1 && differenceY === -1) {
                 this.checkers[currentChecker].positionY = this.stepData.y
                 this.checkers[currentChecker].positionX = this.stepData.x
+                this.globalState.step='white'
             } else {
                 alert('your step is too far')
             }
