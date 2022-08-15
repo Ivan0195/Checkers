@@ -27,11 +27,11 @@ const Cell = observer((props: cellPropsType) => {
         const check = checkers.checkers.map((c) => {
             if (c.positionX === props.x) {
                 if (c.positionY === props.y) {
-                    return c.color === 'white' ? <div className={s.checkerWhite} onClick={(event) => {
+                    return c.color === 'white' ? <div className={c.isRoyal ? s.checkerWhiteRoyal : s.checkerWhite} onClick={(event) => {
                             event.stopPropagation()
                             onClickForChecker(c.id)
                         }}/> :
-                        <div className={s.checkerBlack} onClick={(event) => {
+                        <div className={c.isRoyal ? s.checkerBlackRoyal : s.checkerBlack} onClick={(event) => {
                             event.stopPropagation()
                             onClickForChecker(c.id)
                         }}/>

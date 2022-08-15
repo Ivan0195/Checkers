@@ -106,6 +106,7 @@ export class Checkers {
             if (Math.abs(differenceX)  === 1 && differenceY === 1) {
                 this.checkers[currentChecker].positionY = this.stepData.y
                 this.checkers[currentChecker].positionX = this.stepData.x
+                this.checkers[currentChecker].positionY===8 ? this.checkers[currentChecker].isRoyal = true : ''
                 this.globalState.step='black'
             } else {
                 alert('your step is too far')
@@ -114,6 +115,7 @@ export class Checkers {
             if (Math.abs(differenceX)  === 1 && differenceY === -1) {
                 this.checkers[currentChecker].positionY = this.stepData.y
                 this.checkers[currentChecker].positionX = this.stepData.x
+                this.checkers[currentChecker].positionY===1 ? this.checkers[currentChecker].isRoyal = true : ''
                 this.globalState.step='white'
             } else {
                 alert('your step is too far')

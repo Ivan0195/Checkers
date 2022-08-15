@@ -15,6 +15,7 @@
     justify-content: center;
 }
 
+
 .image {
     height: 80px;
     width: 80px;
@@ -28,10 +29,28 @@
     background-color: black;
 }
 
+.checkerBlackRoyal {
+    width: 80px;
+    height: 80px;
+    border-width: 2px;
+    border-radius: 80px;
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 35%, rgba(213,176,24,1) 100%)
+}
+
 .checkerWhite {
     width: 80px;
     height: 80px;
     border-width: 2px;
     border-radius: 80px;
     background-color: white;
+}
+
+.checkerWhiteRoyal {
+    width: 80px;
+    height: 80px;
+    border-width: 2px;
+    border-radius: 80px;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 35%, rgba(213,176,24,1) 100%);
 }
