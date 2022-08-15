@@ -1,4 +1,4 @@
-import {makeAutoObservable} from "mobx"
+import {action, makeObservable, observable} from "mobx"
 
 export type GlobalStateType = {
     step: 'black' | 'white'
@@ -70,11 +70,19 @@ export class Checkers {
     stepData: stepDataType = {
         x: 0,
         y: 0,
-        checkerId: 'domeID'
+        checkerId: 'white1'
     }
 
     constructor() {
-        makeAutoObservable(this)
+        makeObservable(this,{
+            globalState: observable,
+            checkers: observable,
+            stepData: observable,
+            changeStep: action,
+            setCheckerForStepId: action,
+            setStepCoordinates: action,
+            moveChecker: action
+        })
     }
 
     changeStep() {
@@ -82,14 +90,12 @@ export class Checkers {
     }
 
     setCheckerForStepId(id: string) {
-        if (this.globalState.status==='waitingForStep'){
+
             console.log('setChecker')
             const currentChecker = this.checkers.find(c => c.id === id)
             if (currentChecker) {
                 this.stepData.checkerId = currentChecker.id
             }
-        }
-        this.globalState.status='stepInProcess'
     }
 
     setStepCoordinates(x:number,y:number){
@@ -98,11 +104,13 @@ export class Checkers {
     }
 
     moveChecker() {
-        console.log('moooveeee')
-       const currentChecker = this.checkers.find(c=>c.id===this.stepData.checkerId)
-        if (currentChecker) {
-            currentChecker.positionX = this.stepData.x
-            currentChecker.positionY = this.stepData.y
-        }
+        console.log(this.stepData.checkerId)
+       const currentChecker = this.checkers.findIndex(c=>c.id===this.stepData.checkerId)
+        console.log(currentChecker)
+        this.checkers[currentChecker].positionY=this.stepData.y
+        this.checkers[currentChecker].positionX=this.stepData.x
+        console.log(this.checkers[currentChecker].positionX===this.stepData.x)
+        console.log(this.checkers[currentChecker].positionY===this.stepData.y)
+
     }
 }
