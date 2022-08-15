@@ -32,30 +32,30 @@ export class Checkers {
     }
 
     checkers: checkersStateType = [
-        {id: 'black1', color: 'black', isRoyal:false, positionX: 8, positionY: 8, stillInGame: true},
-        {id: 'black2', color: 'black', isRoyal:false, positionX: 6, positionY: 8, stillInGame: true},
-        {id: 'black3', color: 'black', isRoyal:false, positionX: 4, positionY: 8, stillInGame: true},
-        {id: 'black4', color: 'black', isRoyal:false, positionX: 2, positionY: 8, stillInGame: true},
-        {id: 'black5', color: 'black', isRoyal:false, positionX: 1, positionY: 7, stillInGame: true},
-        {id: 'black6', color: 'black', isRoyal:false, positionX: 3, positionY: 7, stillInGame: true},
-        {id: 'black7', color: 'black', isRoyal:false, positionX: 5, positionY: 7, stillInGame: true},
-        {id: 'black8', color: 'black', isRoyal:false, positionX: 7, positionY: 7, stillInGame: true},
-        {id: 'black9', color: 'black', isRoyal:false, positionX: 8, positionY: 6, stillInGame: true},
-        {id: 'black10', color: 'black', isRoyal:false, positionX: 6, positionY: 6, stillInGame: true},
-        {id: 'black11', color: 'black', isRoyal:false, positionX: 4, positionY: 6, stillInGame: true},
-        {id: 'black12', color: 'black', isRoyal:false, positionX: 2, positionY: 6, stillInGame: true},
-        {id: 'white1', color: 'white', isRoyal:false, positionX: 1, positionY: 1, stillInGame: true},
-        {id: 'white2', color: 'white', isRoyal:false, positionX: 3, positionY: 1, stillInGame: true},
-        {id: 'white3', color: 'white', isRoyal:false, positionX: 5, positionY: 1, stillInGame: true},
-        {id: 'white4', color: 'white', isRoyal:false, positionX: 7, positionY: 1, stillInGame: true},
-        {id: 'white5', color: 'white', isRoyal:false, positionX: 2, positionY: 2, stillInGame: true},
-        {id: 'white6', color: 'white', isRoyal:false, positionX: 4, positionY: 2, stillInGame: true},
-        {id: 'white7', color: 'white', isRoyal:false, positionX: 6, positionY: 2, stillInGame: true},
-        {id: 'white8', color: 'white', isRoyal:false, positionX: 8, positionY: 2, stillInGame: true},
-        {id: 'white9', color: 'white', isRoyal:false, positionX: 1, positionY: 3, stillInGame: true},
-        {id: 'white10', color: 'white', isRoyal:false, positionX: 3, positionY: 3, stillInGame: true},
-        {id: 'white11', color: 'white', isRoyal:false, positionX: 5, positionY: 3, stillInGame: true},
-        {id: 'white12', color: 'white', isRoyal:false, positionX: 7, positionY: 3, stillInGame: true},
+        {id: 'black1', color: 'black', isRoyal: false, positionX: 8, positionY: 8, stillInGame: true},
+        {id: 'black2', color: 'black', isRoyal: false, positionX: 6, positionY: 8, stillInGame: true},
+        {id: 'black3', color: 'black', isRoyal: false, positionX: 4, positionY: 8, stillInGame: true},
+        {id: 'black4', color: 'black', isRoyal: false, positionX: 2, positionY: 8, stillInGame: true},
+        {id: 'black5', color: 'black', isRoyal: false, positionX: 1, positionY: 7, stillInGame: true},
+        {id: 'black6', color: 'black', isRoyal: false, positionX: 3, positionY: 7, stillInGame: true},
+        {id: 'black7', color: 'black', isRoyal: false, positionX: 5, positionY: 7, stillInGame: true},
+        {id: 'black8', color: 'black', isRoyal: false, positionX: 7, positionY: 7, stillInGame: true},
+        {id: 'black9', color: 'black', isRoyal: false, positionX: 8, positionY: 6, stillInGame: true},
+        {id: 'black10', color: 'black', isRoyal: false, positionX: 6, positionY: 6, stillInGame: true},
+        {id: 'black11', color: 'black', isRoyal: false, positionX: 4, positionY: 6, stillInGame: true},
+        {id: 'black12', color: 'black', isRoyal: false, positionX: 2, positionY: 6, stillInGame: true},
+        {id: 'white1', color: 'white', isRoyal: false, positionX: 1, positionY: 1, stillInGame: true},
+        {id: 'white2', color: 'white', isRoyal: false, positionX: 3, positionY: 1, stillInGame: true},
+        {id: 'white3', color: 'white', isRoyal: false, positionX: 5, positionY: 1, stillInGame: true},
+        {id: 'white4', color: 'white', isRoyal: false, positionX: 7, positionY: 1, stillInGame: true},
+        {id: 'white5', color: 'white', isRoyal: false, positionX: 2, positionY: 2, stillInGame: true},
+        {id: 'white6', color: 'white', isRoyal: false, positionX: 4, positionY: 2, stillInGame: true},
+        {id: 'white7', color: 'white', isRoyal: false, positionX: 6, positionY: 2, stillInGame: true},
+        {id: 'white8', color: 'white', isRoyal: false, positionX: 8, positionY: 2, stillInGame: true},
+        {id: 'white9', color: 'white', isRoyal: false, positionX: 1, positionY: 3, stillInGame: true},
+        {id: 'white10', color: 'white', isRoyal: false, positionX: 3, positionY: 3, stillInGame: true},
+        {id: 'white11', color: 'white', isRoyal: false, positionX: 5, positionY: 3, stillInGame: true},
+        {id: 'white12', color: 'white', isRoyal: false, positionX: 7, positionY: 3, stillInGame: true},
     ]
 
     stepData: stepDataType = {
@@ -65,7 +65,7 @@ export class Checkers {
     }
 
     constructor() {
-        makeObservable(this,{
+        makeObservable(this, {
             globalState: observable,
             checkers: observable,
             stepData: observable,
@@ -82,26 +82,37 @@ export class Checkers {
 
     setCheckerForStepId(id: string) {
 
-            console.log('setChecker')
-            const currentChecker = this.checkers.find(c => c.id === id)
-            if (currentChecker) {
-                this.stepData.checkerId = currentChecker.id
-            }
+        console.log('setChecker')
+        const currentChecker = this.checkers.find(c => c.id === id)
+        if (currentChecker) {
+            this.stepData.checkerId = currentChecker.id
+        }
     }
 
-    setStepCoordinates(x:number,y:number){
-        this.stepData.x=x
-        this.stepData.y=y
+    setStepCoordinates(x: number, y: number) {
+        this.stepData.x = x
+        this.stepData.y = y
     }
 
     moveChecker() {
-        console.log(this.stepData.checkerId)
-       const currentChecker = this.checkers.findIndex(c=>c.id===this.stepData.checkerId)
-        console.log(currentChecker)
-        this.checkers[currentChecker].positionY=this.stepData.y
-        this.checkers[currentChecker].positionX=this.stepData.x
-        console.log(this.checkers[currentChecker].positionX===this.stepData.x)
-        console.log(this.checkers[currentChecker].positionY===this.stepData.y)
+        const currentChecker = this.checkers.findIndex(c => c.id === this.stepData.checkerId)
+        const differenceX = this.stepData.x - this.checkers[currentChecker].positionX
+        const differenceY = this.stepData.y - this.checkers[currentChecker].positionY
+        if(this.checkers[currentChecker].color=='white'){
+            if (Math.abs(differenceX)  === 1 && differenceY === 1) {
+                this.checkers[currentChecker].positionY = this.stepData.y
+                this.checkers[currentChecker].positionX = this.stepData.x
+            } else {
+                alert('your step is too far')
+            }
+        }else{
+            if (Math.abs(differenceX)  === 1 && differenceY === -1) {
+                this.checkers[currentChecker].positionY = this.stepData.y
+                this.checkers[currentChecker].positionX = this.stepData.x
+            } else {
+                alert('your step is too far')
+            }
+        }
     }
 }
 

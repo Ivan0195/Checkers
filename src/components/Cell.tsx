@@ -16,8 +16,12 @@ const Cell = observer((props: cellPropsType) => {
             checkers.setCheckerForStepId(id)
         }
         const onClickForCell = () => {
-            checkers.setStepCoordinates(props.x, props.y)
-            checkers.moveChecker()
+           if(color()==='black'){
+               checkers.setStepCoordinates(props.x, props.y)
+               checkers.moveChecker()
+           }else{
+               alert('choose only black cells')
+           }
         }
 
         const check = checkers.checkers.map((c) => {
