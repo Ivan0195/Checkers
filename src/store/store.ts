@@ -102,12 +102,12 @@ export class Checkers {
         const currentChecker = this.checkers.findIndex(c => c.id === this.stepData.checkerId)
         const differenceX = this.stepData.x - this.checkers[currentChecker].positionX
         const differenceY = this.stepData.y - this.checkers[currentChecker].positionY
-        if(this.checkers[currentChecker].color=='white'){
+        if(this.checkers[currentChecker].color==='white'){
             if (Math.abs(differenceX)  === 1 && differenceY === 1) {
                 this.checkers[currentChecker].positionY = this.stepData.y
                 this.checkers[currentChecker].positionX = this.stepData.x
-                this.checkers[currentChecker].positionY===8 ? this.checkers[currentChecker].isRoyal = true : ''
                 this.globalState.step='black'
+               return this.checkers[currentChecker].positionY === 8 ? this.checkers[currentChecker].isRoyal = true : ''
             } else {
                 alert('your step is too far')
             }
@@ -115,8 +115,8 @@ export class Checkers {
             if (Math.abs(differenceX)  === 1 && differenceY === -1) {
                 this.checkers[currentChecker].positionY = this.stepData.y
                 this.checkers[currentChecker].positionX = this.stepData.x
-                this.checkers[currentChecker].positionY===1 ? this.checkers[currentChecker].isRoyal = true : ''
                 this.globalState.step='white'
+                return this.checkers[currentChecker].positionY === 1 ? this.checkers[currentChecker].isRoyal = true : ''
             } else {
                 alert('your step is too far')
             }
