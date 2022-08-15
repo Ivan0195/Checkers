@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Cell.module.css'
-import {Checkers} from "../store/store";
+import {Checkers, CheckersState} from "../store/store";
 import {observer} from "mobx-react";
 
 
@@ -11,7 +11,7 @@ export type cellPropsType = {
 
 const Cell = observer((props: cellPropsType) => {
 
-        const checkers = new Checkers()
+        const checkers = CheckersState
         const onClickForChecker = (id: string) => {
             checkers.setCheckerForStepId(id)
         }
