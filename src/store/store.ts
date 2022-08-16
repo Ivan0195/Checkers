@@ -5,7 +5,7 @@ export type GlobalStateType = {
     status: 'waitingForStep' | 'stepInProcess'
 }
 
-export type ChekerBioType = {
+export type CheсkerBioType = {
     id: string,
     color: 'black' | 'white',
     isRoyal: boolean,
@@ -14,7 +14,7 @@ export type ChekerBioType = {
     stillInGame: boolean
 }
 
-export type checkersStateType = ChekerBioType[]
+export type checkersStateType = CheсkerBioType[]
 
 export type stepDataType = {
     x: number
@@ -85,9 +85,9 @@ export class Checkers {
         console.log('setChecker')
         const currentChecker = this.checkers.find(c => c.id === id)
         if (currentChecker) {
-            if(currentChecker.color===this.globalState.step){
+            if (currentChecker.color === this.globalState.step) {
                 this.stepData.checkerId = currentChecker.id
-            }else{
+            } else {
                 alert(`now is ${this.globalState.step} team step`)
             }
         }
@@ -102,20 +102,21 @@ export class Checkers {
         const currentChecker = this.checkers.findIndex(c => c.id === this.stepData.checkerId)
         const differenceX = this.stepData.x - this.checkers[currentChecker].positionX
         const differenceY = this.stepData.y - this.checkers[currentChecker].positionY
-        if(this.checkers[currentChecker].color==='white'){
-            if (Math.abs(differenceX)  === 1 && differenceY === 1) {
+        const isCellBusy = this.checkers.find(checker => checker.positionX === this.stepData.x && checker.positionY === this.stepData.y)
+        if (this.checkers[currentChecker].color === 'white') {
+            if (Math.abs(differenceX) === 1 && differenceY === 1 && !isCellBusy) {
                 this.checkers[currentChecker].positionY = this.stepData.y
                 this.checkers[currentChecker].positionX = this.stepData.x
-                this.globalState.step='black'
-               return this.checkers[currentChecker].positionY === 8 ? this.checkers[currentChecker].isRoyal = true : ''
+                this.globalState.step = 'black'
+                return this.checkers[currentChecker].positionY === 8 ? this.checkers[currentChecker].isRoyal = true : ''
             } else {
-                alert('your step is too far')
+                alert('wrong cell')
             }
-        }else{
-            if (Math.abs(differenceX)  === 1 && differenceY === -1) {
+        } else {
+            if (Math.abs(differenceX) === 1 && differenceY === -1 && !isCellBusy) {
                 this.checkers[currentChecker].positionY = this.stepData.y
                 this.checkers[currentChecker].positionX = this.stepData.x
-                this.globalState.step='white'
+                this.globalState.step = 'white'
                 return this.checkers[currentChecker].positionY === 1 ? this.checkers[currentChecker].isRoyal = true : ''
             } else {
                 alert('your step is too far')
