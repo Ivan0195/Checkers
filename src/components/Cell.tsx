@@ -24,14 +24,14 @@ const Cell = observer((props: cellPropsType) => {
            }
         }
 
-        const check = checkers.checkers.map((c, index) => {
+        const check = checkers.checkers.map(c => {
             if (c.positionX === props.x) {
                 if (c.positionY === props.y) {
-                    return c.color === 'white' ? <div key={index} className={c.isRoyal ? s.checkerWhiteRoyal : s.checkerWhite} onClick={(event) => {
+                    return c.color === 'white' ? <div key={c.id} className={c.isRoyal ? s.checkerWhiteRoyal : s.checkerWhite} onClick={(event) => {
                             event.stopPropagation()
                             onClickForChecker(c.id)
                         }}/> :
-                        <div key={index} className={c.isRoyal ? s.checkerBlackRoyal : s.checkerBlack} onClick={(event) => {
+                        <div key={c.id} className={c.isRoyal ? s.checkerBlackRoyal : s.checkerBlack} onClick={(event) => {
                             event.stopPropagation()
                             onClickForChecker(c.id)
                         }}/>
